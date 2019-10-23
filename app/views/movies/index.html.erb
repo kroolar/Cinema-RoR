@@ -1,0 +1,35 @@
+<h1> List of the best movies </h1>
+
+<table>
+    <thead>
+        <td>Title</td>
+        <td>Year</td>
+        <td>Rate</td>
+    </thead>
+    <tbody>
+        <% @movies.each do |movie| %>
+        <tr>
+            <td> <%= movie.title %> </td>
+            <td> <%= movie.year %> </td>
+            <td> <%= movie.rate %> </td>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+
+<style>
+    *{
+        font-family: monospace;
+    }
+    table{
+        border-collapse: collapse;
+        font-size: 20px;
+
+    }
+    td{
+        border: 2px solid black;
+    }
+    thead{
+        font-weight: 900;
+    }
+</style>
