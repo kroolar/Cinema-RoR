@@ -7,7 +7,9 @@ class MoviesController < ApplicationController
     end
 
     def show
+        @date = DateTime.now
         @movie = Movie.find(params[:id])
+        @comments = @movie.comments.all
     end
 
     def edit

@@ -13,3 +13,82 @@
  *= require_tree .
  *= require_self
  */
+*{
+    margin: 0;
+    padding: 0;
+    /*background-color: #FFC000;*/
+    background-color: #FEFEFE;
+    color: #222222;
+    font-family: 'Ubuntu', sans-serif;
+}
+.movie{
+    width: 80%;
+    margin: 0 auto;
+}
+ .movie__header{
+     display: flex;
+ }
+ .movie__img-wrapper{
+     width: auto;
+ }
+ .movie__description-wrapper{
+     display: flex;
+     flex-wrap: wrap;
+     justify-content: center;
+     align-items: center;
+     flex: 1;
+ }
+ .movie__fake-img{
+     border: 2px solid black;
+     margin: 40px;
+     width: 200px;
+     height: 200px;
+     background-image: linear-gradient(to left top, #051937, #004d7a, #008793, #00bf72, #a8eb12); }
+
+.movie__title{
+    width: 100%;
+    text-align: left;
+    margin-left: 10%;
+    font-size: 72px;
+    font-weight: 900;
+}
+.movie__more-info{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.movie__info{
+    flex: 1;
+}
+.movie__description{
+    width: 80%;
+}
+.movie__info-title{
+    font-weight: 900;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.movie__comment-wrapper{
+    border-bottom: 1px dotted rgba(34, 34, 34,1);
+    margin: 5px;
+    width: 60%;
+
+    margin-bottom: 20px;
+}
+
+.movie__author{
+    display: inline-block;
+    margin: 5px 10px;
+    margin-right: 0;
+    font-weight: 900;
+}
+.movie__rate{
+    font-weight: 900;
+}
+.movie__comment{
+    font-size: 1.2em;
+    margin: 5px 10px;
+}

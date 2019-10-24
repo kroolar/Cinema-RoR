@@ -1,3 +1,39 @@
-<h1> Show </h1>
+<% x = 0.0 %>
+<% @comments.each do |comment| %>
+    <% x += comment.rate.to_i %>
+<% end %>
 
-<%= @movie.title %>
+
+<%= @date %>
+
+
+<% x /= @comments.count %>
+<div class="movie">
+    <header class="movie__header">
+        <div class="movie__img-wrapper">
+            <div class="movie__fake-img"></div>
+        </div>
+        <div class="movie__description-wrapper">
+            <p class="movie__title"> <%= @movie.title %> </p>
+            <div class="movie__more-info">
+                <p class="movie__info"><span class="movie__info-title">Duration</br></span> <%= @movie.duration %> min. </p>
+                <p class="movie__info"><span class="movie__info-title">Director</br></span> <%= @movie.director %> </p>
+                <p class="movie__info"><span class="movie__info-title">Rate</span> <%= x %> </p>
+            </div>
+
+            <p class="movie__description"><span class="movie__info-title">Description</br></span> <%= @movie.description %> </p>
+            <div class="movie__stars-wrapper"> </div>
+        </div>
+    </header>
+
+    <% @comments.each do |comment| %>
+    <div class="movie__comment-wrapper">
+        <span class="movie__author"> <%= comment.author %> </span> ocenil film na: <span class="movie__rate"> <%= comment.rate %> </span>
+        <p class="movie__comment"><%= comment.body %></p>
+    </div>
+    <% end %>
+
+
+
+    <%= link_to "Add Comment", new_comment_path(:m_id => @movie.id) %>
+</div>

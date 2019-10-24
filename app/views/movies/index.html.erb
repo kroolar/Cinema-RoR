@@ -3,16 +3,12 @@
 <table>
     <thead>
         <td>Title</td>
-        <td>Year</td>
-        <td>Rate</td>
         <td>Action</td>
     </thead>
     <tbody>
         <% @movies.each do |movie| %>
         <tr>
             <td> <%= movie.title %> </td>
-            <td> <%= movie.year %> </td>
-            <td> <%= movie.rate %> </td>
             <td> 
             <%= link_to 'Show', movie_path(movie.id) %>
             <%= link_to 'Edit', edit_movie_path(movie.id) %>
