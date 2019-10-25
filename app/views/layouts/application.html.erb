@@ -11,6 +11,14 @@
   </head>
 
   <body>
+    <div class="navbar">
+
+      <%= link_to "Home", movies_path, :class => "navbar__link"%>
+
+      <%= link_to "Admin", admin_index_path, :class => "navbar__link" %>
+
+    </div>
+
     <%= yield %>
   </body>
 </html>

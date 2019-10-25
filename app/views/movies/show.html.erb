@@ -26,6 +26,16 @@
         </div>
     </header>
 
+
+    <div>
+        <% @showings.each do |showing| %>
+            <% date = @date.day.to_s + "." + @date.month.to_s %>
+            <% if date == showing.date %>
+                <%= showing.time %>
+            <% end %>
+        <% end %>
+    </div>
+
     <% @comments.each do |comment| %>
     <div class="movie__comment-wrapper">
         <span class="movie__author"> <%= comment.author %> </span> ocenil film na: <span class="movie__rate"> <%= comment.rate %> </span>

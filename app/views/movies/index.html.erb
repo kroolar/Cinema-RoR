@@ -1,40 +1,13 @@
-<h1> List of the best moviesss </h1>
-
-<table>
-    <thead>
-        <td>Title</td>
-        <td>Action</td>
-    </thead>
-    <tbody>
+<div class="movies">
+    <h1 class="movies__title">Choose movie which you want see</h1>
+    <ul class="movies__list">
         <% @movies.each do |movie| %>
-        <tr>
-            <td> <%= movie.title %> </td>
-            <td> 
-            <%= link_to 'Show', movie_path(movie.id) %>
-            <%= link_to 'Edit', edit_movie_path(movie.id) %>
-            <%= link_to "Delete", movie_path(movie), method: :delete, data:{confirm: "Are you sure"} %>
-            </td>
-        </tr>
+            <%= link_to movie_path(movie.id), :class => "movies__link" do %>
+                <li class="movies__list-item">
+                        <div class="movies__item-img"></div>
+                        <h2 class="movies__item-title"> <%= movie.title %> </h2>
+                </li>
+            <% end %>
         <% end %>
-    </tbody>
-</table>
-
-<%= link_to 'New movie', new_movie_path %>
-
-
-<style>
-    *{
-        font-family: monospace;
-    }
-    table{
-        border-collapse: collapse;
-        font-size: 20px;
-
-    }
-    td{
-        border: 2px solid black;
-    }
-    thead{
-        font-weight: 900;
-    }
-</style>
+    </ul>
+</div>

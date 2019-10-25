@@ -1,0 +1,21 @@
+
+<table>
+    <thead>
+        <td>Title</td>
+        <td>Action</td>
+    </thead>
+    <tbody>
+        <% @movies.each do |movie| %>
+        <tr>
+            <td> <%= movie.title %> </td>
+            <td> 
+            <%= link_to 'Edit', edit_movie_path(movie.id) %>
+            <%= link_to "Delete", movie_path(movie), method: :delete, data:{confirm: "Are you sure"} %>
+            <%= link_to "Showtimes", new_showing_path(:id => movie.id) %>
+            </td>
+        </tr>
+        <% end %>
+        <%= link_to 'New movie', new_movie_path%>
+
+    </tbody>
+</table>

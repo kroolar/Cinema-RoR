@@ -10,6 +10,7 @@ class MoviesController < ApplicationController
         @date = DateTime.now
         @movie = Movie.find(params[:id])
         @comments = @movie.comments.all
+        @showings = @movie.showings.all
     end
 
     def edit
@@ -30,7 +31,7 @@ class MoviesController < ApplicationController
     def destroy
         @movie = Movie.find(params[:id])
         @movie.destroy
-        redirect_to movies_path
+        redirect_to admin_index_path
     end
     private
     def movie_params
