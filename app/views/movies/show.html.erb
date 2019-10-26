@@ -4,35 +4,49 @@
 <% end %>
 
 
-<%= @date %>
-
 
 <% x /= @comments.count %>
+
 <div class="movie">
+
     <header class="movie__header">
+
         <div class="movie__img-wrapper">
             <div class="movie__fake-img"></div>
         </div>
+
         <div class="movie__description-wrapper">
+
             <p class="movie__title"> <%= @movie.title %> </p>
+
             <div class="movie__more-info">
                 <p class="movie__info"><span class="movie__info-title">Duration</br></span> <%= @movie.duration %> min. </p>
                 <p class="movie__info"><span class="movie__info-title">Director</br></span> <%= @movie.director %> </p>
-                <p class="movie__info"><span class="movie__info-title">Rate</span> <%= x %> </p>
+                <p class="movie__info"><span class="movie__info-title">Rate</br></span> <%= x %> </p>
             </div>
 
             <p class="movie__description"><span class="movie__info-title">Description</br></span> <%= @movie.description %> </p>
             <div class="movie__stars-wrapper"> </div>
         </div>
+
     </header>
 
+    <div class="movie__showings-table">
+        <% 5.times do |x=0|%>
+            <div class="movie__showings-column">
+                <p class="movie__column-header"> <%= (@date + x).day.to_s + "." + (@date + x).month.to_s %> </p>
 
-    <div>
-        <% @showings.each do |showing| %>
-            <% date = @date.day.to_s + "." + @date.month.to_s %>
-            <% if date == showing.date %>
-                <%= showing.time %>
-            <% end %>
+                <% @showings.each do |showing| %>
+                <% date = @date + x %>
+                    <% date = date.day.to_s + "." + date.month.to_s %>
+                    <% if date == showing.date %>
+                        <p class="movie__showing-time"> <%= showing.time %> </p>
+                    <% end %>
+                <% end %>
+
+                <% x += 1 %>
+        
+        </div>
         <% end %>
     </div>
 
@@ -45,5 +59,7 @@
 
 
 
-    <%= link_to "Add Comment", new_comment_path(:m_id => @movie.id) %>
+    <%= link_to new_comment_path(:m_id => @movie.id) do %>
+        <button class="movie__btn">Add Comment</button>
+    <% end %>
 </div>
